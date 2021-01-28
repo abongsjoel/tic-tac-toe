@@ -11,10 +11,10 @@ def tic_tac_toe
   play = true
   while play do
     make_move(turn_to_play)
-    turn_to_play = turn_to_play == player_x ? player_o : player_x
+    display_board
     win = rand(0..9).eql?(5) ? true : false
     draw = rand(0..8).eql?(4) ? true : false
-
+    
     if win
       puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
       play = false
@@ -22,15 +22,20 @@ def tic_tac_toe
       puts "\nWow, its a tie. Game ends"
       play = false
     end
+    turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
 
 def intro
   puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
+  display_board
+  puts "\nType in your names to start this awesome game\n"
+end
+
+def display_board
   puts "   |   |   \n --+---+--"
   puts "   |   |   \n --+---+--"
   puts "   |   |   \n "
-  puts "\nType in your names to start this awesome game\n"
 end
 
 def get_player(position)
