@@ -9,19 +9,10 @@ def tic_tac_toe
   puts "\n#{turn_to_play} wins bid to start"
 
   play = true
-  while play do
+  while play
     make_move(turn_to_play)
     display_board
-    win = rand(0..9).eql?(5) ? true : false
-    draw = rand(0..8).eql?(4) ? true : false
-    
-    if win
-      puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
-      play = false
-    elsif draw
-      puts "\nWow, its a tie. Game ends"
-      play = false
-    end
+    play = check_win_or_draw(turn_to_play)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
@@ -62,6 +53,20 @@ def make_move(player)
     value = gets.chomp.to_i
   end
   puts "\n Okay #{player}, now your move is displayed on the board: #{value}"
+end
+
+def check_win_or_draw(turn_to_play)
+  win = rand(0..9).eql?(5) ? true : false
+  draw = rand(0..8).eql?(4) ? true : false
+  if win
+    puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
+    false
+  elsif draw
+    puts "\nWow, its a tie. Game ends"
+    false
+  else
+    true
+  end
 end
 
 tic_tac_toe
