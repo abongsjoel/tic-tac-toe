@@ -7,7 +7,7 @@ def tic_tac_toe
   puts "\nNow lets start playing"
   starter = start_bid(player_x, player_o)
   puts "\n#{starter} wins bid to start"
-  if (starter == player_x)
+  if starter == player_x
     play_game(player_x, player_o)
   else
     play_game(player_o, player_x)
@@ -47,7 +47,7 @@ def make_move(player)
   puts "\n You can select a positive integer between 1 and 9"
   value = gets.chomp.to_i
   until value >= 1 && value <= 9
-    puts "Error! Please select a positive integer between 1 and 9"
+    puts "\nError! Please select a positive integer between 1 and 9"
     value = gets.chomp.to_i
   end
   puts "\n Okay #{player}, now your move is displayed on the board: #{value}"
