@@ -5,13 +5,19 @@ def tic_tac_toe
   player_x = get_player('first')
   player_o = get_player('second')
   puts "\nNow lets start playing"
-  starter = start_bid(player_x, player_o)
-  puts "\n#{starter} wins bid to start"
-  if starter == player_x
-    play_game(player_x, player_o)
-  else
-    play_game(player_o, player_x)
+  turn_to_play = start_bid(player_x, player_o)
+  puts "\n#{turn_to_play} wins bid to start"
+
+  play = true
+  while play do
+    make_move(turn_to_play)
+    turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
+  # if starter == player_x
+  #   play_game(player_x, player_o)
+  # else
+  #   play_game(player_o, player_x)
+  # end
 end
 
 def intro
@@ -37,10 +43,10 @@ def start_bid(player_x, player_o)
   end
 end
 
-def play_game(first, second)
-  make_move(first)
-  make_move(second)
-end
+# def play_game(first, second)
+#   make_move(first)
+#   make_move(second)
+# end
 
 def make_move(player)
   puts "\n #{player} make a move"
