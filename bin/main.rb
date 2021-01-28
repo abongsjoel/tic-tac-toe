@@ -3,6 +3,7 @@
 def tic_tac_toe
   intro
   puts "Name of first Player"
+  player_x = gets.chomp
 end
 
 def intro
