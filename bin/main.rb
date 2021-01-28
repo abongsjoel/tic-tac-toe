@@ -4,6 +4,8 @@ def tic_tac_toe
   intro
   [player_x, player_o] = get_players
   puts "\nNow lets start playing"
+  starter = start_bid(player_x, player_o)
+  puts "\n#{starter} wins bid to start"
 end
 
 def intro
@@ -21,5 +23,15 @@ def get_players
   player_o = gets.chomp
   [player_x, player_o]
 end
+
+def start_bid(player_x, player_o)
+  if rand(0..1).zero?
+    player_x
+  else
+    player_o
+  end
+end
+
+
 
 tic_tac_toe
