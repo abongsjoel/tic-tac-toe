@@ -38,11 +38,11 @@ def start_bid(player_x, player_o)
 end
 
 def play_game(first, second)
-  move(first)
-  move(second)
+  make_move(first)
+  make_move(second)
 end
 
-def move(player)
+def make_move(player)
   puts "\n #{player} make a move"
   puts "\n You can select a positive integer between 1 and 9"
   value = gets.chomp
