@@ -2,8 +2,9 @@
 
 def tic_tac_toe
   intro
-  puts "Name of first Player"
-  player_x = gets.chomp
+  player_x = get_player("first")
+  player_o = get_player("second")
+  puts "\nNow lets start playing"
 end
 
 def intro
@@ -11,7 +12,14 @@ def intro
   puts " 1 | 2 | 3 \n --+---+--"
   puts " 4 | 5 | 6 \n --+---+--"
   puts " 7 | 8 | 9 \n --+---+--"
-  puts "\nType in your names to start this awesome game\n\n"
+  puts "\nType in your names to start this awesome game\n"
+end
+
+def get_player(position)
+  puts "\nName of #{position} Player"
+  player = gets.chomp
+  puts "\nWelcome #{player}"
+  player
 end
 
 tic_tac_toe
