@@ -14,6 +14,7 @@ def tic_tac_toe
     turn_to_play = turn_to_play == player_x ? player_o : player_x
     win = rand(0..9).eql?(5) ? true : false
     draw = rand(0..8).eql?(4) ? true : false
+
     if win
       puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
       play = false
@@ -22,11 +23,6 @@ def tic_tac_toe
       play = false
     end
   end
-  # if starter == player_x
-  #   play_game(player_x, player_o)
-  # else
-  #   play_game(player_o, player_x)
-  # end
 end
 
 def intro
@@ -51,11 +47,6 @@ def start_bid(player_x, player_o)
     player_o
   end
 end
-
-# def play_game(first, second)
-#   make_move(first)
-#   make_move(second)
-# end
 
 def make_move(player)
   puts "\n #{player} make a move"
