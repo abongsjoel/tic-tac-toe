@@ -12,6 +12,15 @@ def tic_tac_toe
   while play do
     make_move(turn_to_play)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
+    win = rand(0..9).eql?(5) ? true : false
+    draw = rand(0..8).eql?(4) ? true : false
+    if win
+      puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
+      play = false
+    elsif draw
+      puts "\nWow, its a tie. Game ends"
+      play = false
+    end
   end
   # if starter == player_x
   #   play_game(player_x, player_o)
