@@ -45,8 +45,12 @@ end
 def make_move(player)
   puts "\n #{player} make a move"
   puts "\n You can select a positive integer between 1 and 9"
-  value = gets.chomp
-  puts "\n Okay #{player}, now your move is displayed on the board"
+  value = gets.chomp.to_i
+  until value >= 1 && value <= 9
+    puts "Error! Please select a positive integer between 1 and 9"
+    value = gets.chomp.to_i
+  end
+  puts "\n Okay #{player}, now your move is displayed on the board: #{value}"
 end
 
 tic_tac_toe
