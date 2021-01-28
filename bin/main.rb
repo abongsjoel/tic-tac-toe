@@ -2,7 +2,8 @@
 
 def tic_tac_toe
   intro
-  [player_x, player_o] = get_players
+  player_x = get_player("first")
+  player_o = get_player("second")
   puts "\nNow lets start playing"
   starter = start_bid(player_x, player_o)
   puts "\n#{starter} wins bid to start"
@@ -16,12 +17,11 @@ def intro
   puts "\nType in your names to start this awesome game\n"
 end
 
-def get_players
-  puts "\nName of first Player"
-  player_x = gets.chomp
-  puts "\nName of second Player"
-  player_o = gets.chomp
-  [player_x, player_o]
+def get_player(position)
+  puts "\nEnter name of #{position} Player"
+  player = gets.chomp
+  puts "\nWelcome #{player}"
+  player
 end
 
 def start_bid(player_x, player_o)
@@ -31,7 +31,5 @@ def start_bid(player_x, player_o)
     player_o
   end
 end
-
-
 
 tic_tac_toe
