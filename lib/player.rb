@@ -28,9 +28,16 @@ class Player
   end
 
   def check_win_or_draw
-    # win = rand(0..9).eql?(5) ? true : false
-    draw = @@available_moves.length == 0 ? true : false
     win = false
+    draw = @@available_moves.length == 0 ? true : false
+    if @collection.length >= 3
+      win_collect = []
+      POSIBLE_WINS.each do |posible_win|
+        win_collect.push((@collection.sort & posible_win) == posible_win)
+      end
+      win = win_collect.any?
+    end
+    
     if win
       puts "\nCongratzzz #{self.name}, you win. Lets pop the champagne"
       false
