@@ -1,9 +1,11 @@
 class Player
+  POSIBLE_WINS = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
   attr_accessor :name
   @@available_moves = *(1..9)
   def initialize(name, mark)
     @name = name
     @mark = mark
+    @collection = []
     @positions = { 1 => [0, 0], 2 => [0, 1], 3 => [0, 2],
                    4 => [1, 0], 5 => [1, 1], 6 => [1, 2],
                    7 => [2, 0], 8 => [2, 1], 9 => [2, 2] }
@@ -18,6 +20,8 @@ class Player
       puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
       value = gets.chomp.to_i
     end
+    @collection << value
+    p @collection
     puts "\n"
     update_board(value, board)
     update_availble_moves(value)
