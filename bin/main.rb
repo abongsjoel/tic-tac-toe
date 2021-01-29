@@ -17,7 +17,7 @@ def tic_tac_toe
   play = true
   while play
     turn_to_play.make_move(board)
-    play = check_win_or_draw(turn_to_play.name)
+    play = turn_to_play.check_win_or_draw
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
@@ -40,24 +40,6 @@ def start_bid(player_x, player_o)
     player_x
   else
     player_o
-  end
-end
-
-
-
-def check_win_or_draw(turn_to_play)
-  # win = rand(0..9).eql?(5) ? true : false
-  # draw = rand(0..8).eql?(4) ? true : false
-  win = false
-  draw = false
-  if win
-    puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
-    false
-  elsif draw
-    puts "\nWow, its a tie. Game ends"
-    false
-  else
-    true
   end
 end
 

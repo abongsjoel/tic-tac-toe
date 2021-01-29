@@ -1,5 +1,6 @@
 class Player
   attr_accessor :name
+  @@available_moves = [0..9]
   def initialize(name, mark)
     @name = name
     @mark = mark
@@ -17,6 +18,22 @@ class Player
       value = gets.chomp.to_i
     end
     update_board(value, board)
+  end
+
+  def check_win_or_draw
+    # win = rand(0..9).eql?(5) ? true : false
+    # draw = rand(0..8).eql?(4) ? true : false
+    win = true
+    draw = true
+    if win
+      puts "\nCongratzzz #{self.name}, you win. Lets pop the champagne"
+      false
+    elsif draw
+      puts "\nWow, its a tie. Game ends"
+      false
+    else
+      true
+    end
   end
 
   private
