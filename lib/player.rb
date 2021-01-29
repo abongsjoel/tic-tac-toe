@@ -14,6 +14,12 @@ class Player
       value = gets.chomp.to_i
     end
     puts "\n Okay #{self.name}, now your move is displayed on the board: #{value}"
-    value
+    update_board(value)
+  end
+
+  private
+
+  def update_board(value)
+    p "Update value is #{value}"
   end
 end
