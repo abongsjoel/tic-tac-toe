@@ -1,6 +1,6 @@
 class Player
   attr_accessor :name
-  @@available_moves = *(0..9)
+  @@available_moves = *(1..9)
   def initialize(name, mark)
     @name = name
     @mark = mark
@@ -11,7 +11,6 @@ class Player
 
   def make_move(board)
     puts "\n #{self.name} make a move"
-    # puts "\n You can select a positive integer between 1 and 9\n"
     puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
     value = gets.chomp.to_i
     until value >= 1 && value <= 9
@@ -20,6 +19,7 @@ class Player
     end
     puts "\n"
     update_board(value, board)
+    update_availble_moves(value)
   end
 
   def check_win_or_draw
@@ -38,10 +38,15 @@ class Player
     end
   end
 
+  def update_availble_moves(value)
+    @@available_moves.reject!{|move| move == value}
+  end
+
   private
 
   def update_board(value, board)
     board.cell[@positions[value][0]][@positions[value][1]] = @mark
     board.display
   end
+
 end
