@@ -14,7 +14,6 @@ class Player
     puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
     value = gets.chomp.to_i
     until @@available_moves.include?(value)
-      # until value >= 1 && value <= 9
       puts "\nError! Error! Please select an availabe move"
       puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
       value = gets.chomp.to_i
@@ -26,9 +25,8 @@ class Player
 
   def check_win_or_draw
     # win = rand(0..9).eql?(5) ? true : false
-    # draw = rand(0..8).eql?(4) ? true : false
+    draw = @@available_moves.length == 0 ? true : false
     win = false
-    draw = false
     if win
       puts "\nCongratzzz #{self.name}, you win. Lets pop the champagne"
       false
