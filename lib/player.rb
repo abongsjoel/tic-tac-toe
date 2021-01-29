@@ -1,8 +1,8 @@
 class Player
   attr_accessor :name
-  def initialize(name, letter)
+  def initialize(name, mark)
     @name = name
-    @letter = letter
+    @mark = mark
   end
 
   def make_move
@@ -14,5 +14,6 @@ class Player
       value = gets.chomp.to_i
     end
     puts "\n Okay #{self.name}, now your move is displayed on the board: #{value}"
+    value
   end
 end

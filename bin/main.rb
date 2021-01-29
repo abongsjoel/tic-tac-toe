@@ -16,7 +16,8 @@ def tic_tac_toe
 
   play = true
   while play
-    turn_to_play.make_move
+    value = turn_to_play.make_move
+    my_board.update_board(value)
     my_board.display
     play = check_win_or_draw(turn_to_play.name)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
@@ -47,8 +48,10 @@ end
 
 
 def check_win_or_draw(turn_to_play)
-  win = rand(0..9).eql?(5) ? true : false
-  draw = rand(0..8).eql?(4) ? true : false
+  # win = rand(0..9).eql?(5) ? true : false
+  # draw = rand(0..8).eql?(4) ? true : false
+  win = false
+  draw = false
   if win
     puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
     false
