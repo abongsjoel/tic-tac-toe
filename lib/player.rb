@@ -10,13 +10,12 @@ class Player
 
   def make_move(board)
     puts "\n #{self.name} make a move"
-    puts "\n You can select a positive integer between 1 and 9"
+    puts "\n You can select a positive integer between 1 and 9\n"
     value = gets.chomp.to_i
     until value >= 1 && value <= 9
       puts "\nError! Please select a positive integer between 1 and 9 that has not been selected yet"
       value = gets.chomp.to_i
     end
-    # puts "\n Okay #{self.name}, now your move is displayed on the board: #{value}"
     update_board(value, board)
   end
 
@@ -25,7 +24,6 @@ class Player
   def update_board(value, board)
     p "Update value is #{@positions[value]}"
     board.cell[@positions[value][0]][@positions[value][1]] = @mark
-    # p board
     board.display
   end
 end
