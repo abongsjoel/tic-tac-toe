@@ -13,8 +13,10 @@ class Player
     puts "\n #{self.name} make a move"
     puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
     value = gets.chomp.to_i
-    until value >= 1 && value <= 9
-      puts "\nError! Please select a positive integer between 1 and 9 that has not been selected yet"
+    until @@available_moves.include?(value)
+      # until value >= 1 && value <= 9
+      puts "\nError! Error! Please select an availabe move"
+      puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
       value = gets.chomp.to_i
     end
     puts "\n"
