@@ -17,7 +17,7 @@ def tic_tac_toe
   play = true
   while play
     turn_to_play.make_move(board)
-    board.display
+    # board.display
     play = check_win_or_draw(turn_to_play.name)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end

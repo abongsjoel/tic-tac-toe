@@ -24,7 +24,8 @@ class Player
 
   def update_board(value, board)
     p "Update value is #{@positions[value]}"
-    board.cell[@positions[value][0], @positions[value][1]] = @mark
+    board.cell[@positions[value][0]][@positions[value][1]] = @mark
+    # p board
     board.display
   end
 end
