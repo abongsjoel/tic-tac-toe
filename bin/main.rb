@@ -9,15 +9,15 @@ def tic_tac_toe
   player_x.name = get_player('first')
   player_o.name = get_player('second')
   puts "\nNow lets start playing"
-  turn_to_play = start_bid(player_x.name, player_o.name)
-  puts "\n#{turn_to_play} wins bid to start"
+  turn_to_play = start_bid(player_x, player_o)
+  puts "\n#{turn_to_play.name} wins bid to start"
 
   play = true
   while play
-    make_move(turn_to_play)
+    turn_to_play.make_move
     display_board
-    play = check_win_or_draw(turn_to_play)
-    turn_to_play = turn_to_play == player_x.name ? player_o.name : player_x.name
+    play = check_win_or_draw(turn_to_play.name)
+    turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
 
@@ -48,16 +48,7 @@ def start_bid(player_x, player_o)
   end
 end
 
-def make_move(player)
-  puts "\n #{player} make a move"
-  puts "\n You can select a positive integer between 1 and 9"
-  value = gets.chomp.to_i
-  until value >= 1 && value <= 9
-    puts "\nError! Please select a positive integer between 1 and 9 that has not been selected yet"
-    value = gets.chomp.to_i
-  end
-  puts "\n Okay #{player}, now your move is displayed on the board: #{value}"
-end
+
 
 def check_win_or_draw(turn_to_play)
   win = rand(0..9).eql?(5) ? true : false
