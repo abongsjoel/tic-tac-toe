@@ -6,8 +6,8 @@ require_relative '../lib/board'
 def tic_tac_toe
   player_x = Player.new('', 'X')
   player_o = Player.new('', 'O')
-  my_board = Board.new
-  intro(my_board)
+  board = Board.new
+  intro(board)
   player_x.name = get_player('first')
   player_o.name = get_player('second')
   puts "\nNow lets start playing"
@@ -16,16 +16,16 @@ def tic_tac_toe
 
   play = true
   while play
-    turn_to_play.make_move
-    my_board.display
+    turn_to_play.make_move(board)
+    board.display
     play = check_win_or_draw(turn_to_play.name)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
 
-def intro(my_board)
+def intro(board)
   puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
-  my_board.display
+  board.display
   puts "\nType in your names to start this awesome game\n"
 end
 

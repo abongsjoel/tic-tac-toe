@@ -8,7 +8,7 @@ class Player
                    7 => [2, 0], 8 => [2, 1], 9 => [2, 2] }
   end
 
-  def make_move
+  def make_move(board)
     puts "\n #{self.name} make a move"
     puts "\n You can select a positive integer between 1 and 9"
     value = gets.chomp.to_i
@@ -17,12 +17,12 @@ class Player
       value = gets.chomp.to_i
     end
     # puts "\n Okay #{self.name}, now your move is displayed on the board: #{value}"
-    update_board(value)
+    update_board(value, board)
   end
 
   private
 
-  def update_board(value)
+  def update_board(value, board)
     p "Update value is #{@positions[value]}"
   end
 end
