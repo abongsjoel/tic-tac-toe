@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/player'
+require_relative '../lib/board'
 
 def tic_tac_toe
   player_x = Player.new('', 'X')
   player_o = Player.new('', 'O')
-  intro
+  my_board = Board.new
+  intro(my_board)
   player_x.name = get_player('first')
   player_o.name = get_player('second')
   puts "\nNow lets start playing"
@@ -15,22 +17,16 @@ def tic_tac_toe
   play = true
   while play
     turn_to_play.make_move
-    display_board
+    my_board.display
     play = check_win_or_draw(turn_to_play.name)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
 
-def intro
+def intro(my_board)
   puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
-  display_board
+  my_board.display
   puts "\nType in your names to start this awesome game\n"
-end
-
-def display_board
-  puts "   |   |   \n --+---+--"
-  puts "   |   |   \n --+---+--"
-  puts "   |   |   \n "
 end
 
 def get_player(position)
