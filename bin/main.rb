@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/player'
+
 def tic_tac_toe
+  player_x = Player.new('', 'X')
+  player_o = Player.new('', 'O')
   intro
-  player_x = get_player('first')
-  player_o = get_player('second')
+  player_x.name = get_player('first')
+  player_o.name = get_player('second')
   puts "\nNow lets start playing"
-  turn_to_play = start_bid(player_x, player_o)
+  turn_to_play = start_bid(player_x.name, player_o.name)
   puts "\n#{turn_to_play} wins bid to start"
 
   play = true
@@ -13,7 +17,7 @@ def tic_tac_toe
     make_move(turn_to_play)
     display_board
     play = check_win_or_draw(turn_to_play)
-    turn_to_play = turn_to_play == player_x ? player_o : player_x
+    turn_to_play = turn_to_play == player_x.name ? player_o.name : player_x.name
   end
 end
 
