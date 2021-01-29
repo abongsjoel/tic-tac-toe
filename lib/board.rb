@@ -1,4 +1,5 @@
 class Board
+  attr_accessor :cell
   def initialize
     @cell = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
   end
