@@ -24,7 +24,7 @@ class Player
     p @collection
     puts "\n"
     update_board(value, board)
-    update_availble_moves(value)
+    Player.update_availble_moves(value)
   end
 
   def check_win_or_draw
@@ -49,7 +49,7 @@ class Player
     end
   end
 
-  def update_availble_moves(value)
+  def self.update_availble_moves(value)
     @@available_moves.reject! { |move| move == value }
   end
 
