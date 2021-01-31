@@ -1,9 +1,11 @@
 class Board
-  attr_accessor :cell
+  
+  attr_reader :cell, :available_moves, :positions
+  attr_reader 
   def initialize
     @cell = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     @available_moves = *(1..9)
-    @collection = []
+    
     @positions = { 1 => [0, 0], 2 => [0, 1], 3 => [0, 2],
                    4 => [1, 0], 5 => [1, 1], 6 => [1, 2],
                    7 => [2, 0], 8 => [2, 1], 9 => [2, 2] }
@@ -16,19 +18,13 @@ class Board
   end
 
   def display_availble_moves
-    @available_moves.join(', ')
+    self.available_moves.join(', ')
   end
 
   private
 
   def update_availble_moves(value)
-    @available_moves.reject! { |move| move == value }
-  end
-
-
-  def update_board(value, board)
-    board.cell[@positions[value][0]][@positions[value][1]] = @mark
-    board.display
+    self.available_moves.reject! { |move| move == value }
   end
 
   def check_win_or_draw

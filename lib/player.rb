@@ -4,18 +4,13 @@ class Player
   def initialize(name, mark)
     @name = name
     @mark = mark
+    @collection = []
   end
 
-  def make_move(board)
-    value = gets.chomp.to_i
-    until @@available_moves.include?(value)
-      puts "\nError! Error! Please select an availabe move"
-      puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
-      value = gets.chomp.to_i
-    end
+  def make_move(board, value)
     @collection << value
     p @collection
-    puts "\n"
-    update_board(value, board)
+    board.cell[board.positions[value][0]][board.positions[value][1]] = @mark
+    board.display
   end
 end
