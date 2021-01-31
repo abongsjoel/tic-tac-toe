@@ -15,11 +15,11 @@ def tic_tac_toe
   puts "\n#{turn_to_play.name} wins bid to start"
 
   play = true
-  while play
-    turn_to_play.make_move(board)
-    play = turn_to_play.check_win_or_draw
-    turn_to_play = turn_to_play == player_x ? player_o : player_x
-  end
+  # while play
+  #   turn_to_play.make_move(board)
+  #   play = turn_to_play.check_win_or_draw
+  #   turn_to_play = turn_to_play == player_x ? player_o : player_x
+  # end
 end
 
 def intro(board)
