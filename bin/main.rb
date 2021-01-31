@@ -21,18 +21,22 @@ def play_game(player_x, player_o, board)
   while play
     puts "\n #{turn_to_play.name} make a move"
     puts "\nAvailable moves: #{board.display_availble_moves}\n"
-    value = gets.chomp.to_i
-    until board.available_moves.include?(value)
-      puts "\nError! Error! Please select an availabe move"
-      puts "\nAvailable moves: #{board.display_availble_moves}\n"
-      value = gets.chomp.to_i
-    end
+    value = get_value(board)
     puts "\n"
     puts turn_to_play.make_move(board, value)
     # play = turn_to_play.check_win_or_draw
-    play = false
     # turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
+end
+
+def get_value(board)
+  value = gets.chomp.to_i
+  until board.available_moves.include?(value)
+    puts "\nError! Error! Please select an availabe move"
+    puts "\nAvailable moves: #{board.display_availble_moves}\n"
+    value = gets.chomp.to_i
+  end
+  value
 end
 
 def intro(board)
