@@ -1,32 +1,61 @@
 #!/usr/bin/env ruby
 
-def tic_tac_toe
-  intro
-  player_x = get_player('first')
-  player_o = get_player('second')
-  puts "\nNow lets start playing"
-  turn_to_play = start_bid(player_x, player_o)
-  puts "\n#{turn_to_play} wins bid to start"
+require_relative '../lib/player'
+require_relative '../lib/board'
 
+def tic_tac_toe
+  player_x = Player.new('', 'X')
+  player_o = Player.new('', 'O')
+  board = Board.new
+  intro(board)
+  player_x.name = get_player('first')
+  player_o.name = get_player('second')
+  puts "\nNow lets start playing"
+  play_game(player_x, player_o, board)
+end
+
+def play_game(player_x, player_o, board)
+  turn_to_play = start_bid(player_x, player_o)
+  puts "\n#{turn_to_play.name} wins bid to start"
   play = true
   while play
-    make_move(turn_to_play)
-    display_board
-    play = check_win_or_draw(turn_to_play)
+    puts "\n #{turn_to_play.name} make a move"
+    value = get_value(board)
+    puts "\n"
+    puts turn_to_play.make_move(board, value)
+    play = check_win_or_draw(turn_to_play, board)
     turn_to_play = turn_to_play == player_x ? player_o : player_x
   end
 end
 
-def intro
-  puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
-  display_board
-  puts "\nType in your names to start this awesome game\n"
+def check_win_or_draw(turn_to_play, board)
+  if turn_to_play.check_win
+    puts "\nCongratzzz #{turn_to_play.name}, you win. Lets pop the champagne"
+    false
+  elsif board.check_draw
+    puts "\nWow, its a tie. Game ends"
+    false
+  else
+    true
+  end
 end
 
-def display_board
-  puts "   |   |   \n --+---+--"
-  puts "   |   |   \n --+---+--"
-  puts "   |   |   \n "
+def get_value(board)
+  puts "\nAvailable moves: #{board.display_availble_moves}\n"
+  value = gets.chomp.to_i
+  until board.available_moves.include?(value)
+    puts "\nError! Error! Please select an availabe move"
+    puts "\nAvailable moves: #{board.display_availble_moves}\n"
+    value = gets.chomp.to_i
+  end
+  board.update_availble_moves(value)
+  value
+end
+
+def intro(board)
+  puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
+  puts board.display
+  puts "\nType in your names to start this awesome game\n"
 end
 
 def get_player(position)
@@ -41,31 +70,6 @@ def start_bid(player_x, player_o)
     player_x
   else
     player_o
-  end
-end
-
-def make_move(player)
-  puts "\n #{player} make a move"
-  puts "\n You can select a positive integer between 1 and 9"
-  value = gets.chomp.to_i
-  until value >= 1 && value <= 9
-    puts "\nError! Please select a positive integer between 1 and 9 that has not been selected yet"
-    value = gets.chomp.to_i
-  end
-  puts "\n Okay #{player}, now your move is displayed on the board: #{value}"
-end
-
-def check_win_or_draw(turn_to_play)
-  win = rand(0..9).eql?(5) ? true : false
-  draw = rand(0..8).eql?(4) ? true : false
-  if win
-    puts "\nCongratzzz #{turn_to_play}, you win. Lets pop the champagne"
-    false
-  elsif draw
-    puts "\nWow, its a tie. Game ends"
-    false
-  else
-    true
   end
 end
 
