@@ -24,7 +24,7 @@ end
 
 def intro(board)
   puts "Hello and welcome to the world TIC-TAC-TOE\n\n"
-  board.display
+  puts board.display
   puts "\nType in your names to start this awesome game\n"
 end
 
