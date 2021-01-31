@@ -4,12 +4,9 @@ class Player
   def initialize(name, mark)
     @name = name
     @mark = mark
-   
   end
 
   def make_move(board)
-    puts "\n #{name} make a move"
-    puts "\nAvailable moves: #{@@available_moves.join(', ')}\n"
     value = gets.chomp.to_i
     until @@available_moves.include?(value)
       puts "\nError! Error! Please select an availabe move"
@@ -21,8 +18,4 @@ class Player
     puts "\n"
     update_board(value, board)
   end
-
-
-
-
 end

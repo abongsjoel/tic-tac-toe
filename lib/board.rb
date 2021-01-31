@@ -15,11 +15,16 @@ class Board
     " #{@cell[2][0]} | #{@cell[2][1]} | #{@cell[2][2]}  \n "
   end
 
+  def display_availble_moves
+    @available_moves.join(', ')
+  end
+
+  private
+
   def update_availble_moves(value)
     @available_moves.reject! { |move| move == value }
   end
 
-  private
 
   def update_board(value, board)
     board.cell[@positions[value][0]][@positions[value][1]] = @mark
