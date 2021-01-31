@@ -23,8 +23,20 @@ def play_game(player_x, player_o, board)
     value = get_value(board)
     puts "\n"
     puts turn_to_play.make_move(board, value)
-    # play = turn_to_play.check_win_or_draw
-    # turn_to_play = turn_to_play == player_x ? player_o : player_x
+    play = check_win_or_draw(turn_to_play, board)
+    turn_to_play = turn_to_play == player_x ? player_o : player_x
+  end
+end
+
+def check_win_or_draw(turn_to_play, board)
+  if turn_to_play.check_win
+    puts "\nCongratzzz #{turn_to_play.name}, you win. Lets pop the champagne"
+    false
+  elsif board.check_draw
+    puts "\nWow, its a tie. Game ends"
+    false
+  else
+    true
   end
 end
 
@@ -36,6 +48,7 @@ def get_value(board)
     puts "\nAvailable moves: #{board.display_availble_moves}\n"
     value = gets.chomp.to_i
   end
+  board.update_availble_moves(value)
   value
 end
 

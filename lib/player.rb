@@ -9,8 +9,18 @@ class Player
 
   def make_move(board, value)
     @collection << value
-    p @collection
     board.cell[board.positions[value][0]][board.positions[value][1]] = @mark
     board.display
+  end
+
+  def check_win
+    win = false
+    if @collection.length >= 3
+      win_collect = []
+      POSIBLE_WINS.each do |posible_win|
+        win_collect.push((@collection.sort & posible_win) == posible_win)
+      end
+      win = win_collect.any?
+    end
   end
 end
