@@ -1,7 +1,6 @@
 class Board
-  
   attr_reader :cell, :available_moves, :positions
-  attr_reader 
+  attr_reader
   def initialize
     @cell = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     @available_moves = *(1..9)
@@ -11,21 +10,20 @@ class Board
   end
 
   def display
-    " #{@cell[0][0]} | #{@cell[0][1]} | #{@cell[0][2]}  \n --+---+--\n" +
-    " #{@cell[1][0]} | #{@cell[1][1]} | #{@cell[1][2]}  \n --+---+--\n" +
-    " #{@cell[2][0]} | #{@cell[2][1]} | #{@cell[2][2]}  \n "
+    " #{@cell[0][0]} | #{@cell[0][1]} | #{@cell[0][2]}  \n --+---+--\n" \
+      " #{@cell[1][0]} | #{@cell[1][1]} | #{@cell[1][2]}  \n --+---+--\n" \
+      " #{@cell[2][0]} | #{@cell[2][1]} | #{@cell[2][2]}  \n "
   end
 
   def display_availble_moves
-    self.available_moves.join(', ')
+    available_moves.join(', ')
   end
 
   def check_draw
-    draw = self.available_moves.empty?
+    available_moves.empty?
   end
 
   def update_availble_moves(value)
-    self.available_moves.reject! { |move| move == value }
+    available_moves.reject! { |move| move == value }
   end
-
 end

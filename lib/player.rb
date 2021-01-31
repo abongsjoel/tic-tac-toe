@@ -22,5 +22,6 @@ class Player
       end
       win = win_collect.any?
     end
+    win
   end
 end
