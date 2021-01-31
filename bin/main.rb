@@ -11,10 +11,13 @@ def tic_tac_toe
   player_x.name = get_player('first')
   player_o.name = get_player('second')
   puts "\nNow lets start playing"
+  play_game(player_x, player_o)
+end
+
+def play_game(player_x, player_o)
   turn_to_play = start_bid(player_x, player_o)
   puts "\n#{turn_to_play.name} wins bid to start"
-
-  play = true
+  # play = true
   # while play
   #   turn_to_play.make_move(board)
   #   play = turn_to_play.check_win_or_draw
