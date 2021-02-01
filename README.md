@@ -24,9 +24,20 @@ This game is built with Ruby and played at the terminal so in order to play the 
 
 - You start by installing ruby on your computer
 - Then you clone the game from githup into a local repository
-- cd into the tic-tac-toe folder
-- Type the command ```bin/main.rb``` at the console and voila
-- Follow the instructions displayed at the terminal
+  ```
+  git clone git@github.com:abongsjoel/tic-tac-toe.git
+  ```
+- Navigagte into the tic-tac-toe folder
+  ```
+  cd tic-tac-toe
+  ```
+- Run the application using the following command
+  ```
+  bin/main.rb
+  ```
+- Voila
+- Follow the instructions displayed at the terminal to play the game
+- Enjoy
 
 ## Built With
 
