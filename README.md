@@ -23,6 +23,8 @@ Tic-tac-toe is a game in which two players seek in alternate turns to complete a
 This game is built with Ruby and played at the terminal so in order to play the game:
 
 - You start by installing ruby on your computer
+> [Installing Ruby](https://www.theodinproject.com/courses/ruby-programming/lessons/installing-ruby-ruby-programming)
+
 - Then you clone the game from githup into a local repository
   ```
   git clone git@github.com:abongsjoel/tic-tac-toe.git
