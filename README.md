@@ -18,7 +18,15 @@ Tic-tac-toe is a game in which two players seek in alternate turns to complete a
 - The first person to put 3 letters next to each other horizontally, vertically or diagonally wins
 - If all nine spaces are filled without anyone winning, the game reports a tie
 
+## Getting Started
 
+This game is built with Ruby and played at the terminal so in order to play the game:
+
+- You start by installing ruby on your computer
+- Then the clone the game into a local repository
+- cd into the tic-tac-toe folder
+- Type the command bin/main.rb at the console and voila
+- Follow the instructions displayed at the terminal
 
 ## Built With
 
