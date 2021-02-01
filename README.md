@@ -8,6 +8,18 @@ Tic-tac-toe is a game in which two players seek in alternate turns to complete a
 
 ![screenshot](../readme_game_instructions/screenshot/screenshot.png) 
 
+## How it works
+
+- The game starts by requiring the two players to enter their names, one after the other
+- The game does a bid to randomly select player to start
+- The player that wins the bid starts by entering a number between 1 and 9
+- Numbers already chosen are taken off the list of available options so players can not choice them again
+- Available options are displayed to players as they play
+- The first person to put 3 letters next to each other horizontally, vertically or diagonally wins
+- If all nine spaces are filled without anyone winning, the game reports a tie
+
+
+
 ## Built With
 
 - Ruby
