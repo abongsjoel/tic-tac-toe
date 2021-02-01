@@ -1,10 +1,17 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 # Tic Tac Toe
 
-> 
+> In this project, I created a simple but amazing Tic Tac Toe game.
+
+Tic-tac-toe is a game in which two players seek in alternate turns to complete a row, a column, or a diagonal with either three O's or three X's drawn in the spaces of a grid of nine squares; noughts and crosses.
+
+![screenshot](../readme_game_instructions/screenshot/screenshot.png) 
 
 ## Built With
 
 - Ruby
+- OOP
 
 ## Author
 
@@ -18,6 +25,7 @@
 ## Acknowledgments
 
 - [The Odin Project](https://www.theodinproject.com)
+- [Microverse](https://www.microverse.org/)
 
 
 ## Contributing
