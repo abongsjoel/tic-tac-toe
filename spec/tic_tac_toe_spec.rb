@@ -14,4 +14,12 @@ describe Player do
       expect(player2.make_move(board, 1)).to include(' O |   |  ')
     end
   end
+
+  describe "check_win" do
+    it "returns true if player wins" do
+      player1.collection = [4,5,6]
+      expect(player1.check_win).to eql(true)
+    end
+  end
+
 end
