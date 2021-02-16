@@ -15,10 +15,14 @@ describe Player do
     end
   end
 
-  describe "check_win" do
+  describe "#check_win" do
     it "returns true if player wins" do
       player1.collection = [4,5,6]
       expect(player1.check_win).to eql(true)
+    end
+    it "returns false if player does not win" do
+      player1.collection = [4,5]
+      expect(player1.check_win).to eql(false)
     end
   end
 
