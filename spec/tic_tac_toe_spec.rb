@@ -25,5 +25,19 @@ describe Player do
       expect(player1.check_win).to eql(false)
     end
   end
+end
 
+describe Board do
+  let(:board) {Board.new}
+  describe "#display" do
+    it "returns an empty board" do
+      expect(board.display).to eql("   |   |    \n --+---+--\n   |   |    \n --+---+--\n   |   |    \n ")
+    end
+  end
+
+  describe "#display_availble_moves" do
+    it "returns available moves" do
+      expect(board.display_availble_moves).to eql("1, 2, 3, 4, 5, 6, 7, 8, 9")
+    end
+  end
 end
