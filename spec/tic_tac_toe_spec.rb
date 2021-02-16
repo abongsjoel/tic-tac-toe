@@ -40,4 +40,15 @@ describe Board do
       expect(board.display_availble_moves).to eql("1, 2, 3, 4, 5, 6, 7, 8, 9")
     end
   end
+
+  describe "#check_draw" do
+    it "returns true if available moves is empty" do
+      board.available_moves = []
+      expect(board.check_draw).to eql(true)
+    end
+
+    it "returns false if available moves is not empty" do
+      expect(board.check_draw).to eql(false)
+    end
+  end
 end

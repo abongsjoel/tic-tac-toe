@@ -1,6 +1,6 @@
 class Board
   attr_reader :cell, :available_moves, :positions
-  attr_reader
+  attr_writer :available_moves
   
   def initialize
     @cell = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
