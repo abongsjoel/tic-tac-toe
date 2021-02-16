@@ -14,7 +14,7 @@ describe Player do
       expect(player2.make_move(board, 9)).to eql("   |   |    \n --+---+--\n   |   |    \n --+---+--\n   |   | O  \n ")
     end
     it 'returns a board that is not empty' do
-      expect(player1.make_move(board, 3)).not_to eql("   |   |   \n --+---+--\n   |   |    \n --+---+--\n   |   |    \n ")
+      expect(player1.make_move(board, 3)).not_to eql("   |   |   \n --+---+--\n   |   |  \n --+---+--\n   |   |  \n ")
     end
   end
 
@@ -28,11 +28,11 @@ describe Player do
       expect(player1.check_win).to eql(false)
     end
     it 'does not return false if player wins' do
-      player2.collection = [1,2,3]
+      player2.collection = [1, 2, 3]
       expect(player2.check_win).not_to eql(false)
     end
     it 'does not return true if player does not wins' do
-      player2.collection = [1,2,9]
+      player2.collection = [1, 2, 9]
       expect(player2.check_win).not_to eql(true)
     end
   end
