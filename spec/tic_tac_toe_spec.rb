@@ -13,6 +13,9 @@ describe Player do
     it 'returns a board with player O mark at right position' do
       expect(player2.make_move(board, 9)).to eql("   |   |    \n --+---+--\n   |   |    \n --+---+--\n   |   | O  \n ")
     end
+    it 'returns a board that is not empty' do
+      expect(player1.make_move(board, 3)).not_to eql("   |   |   \n --+---+--\n   |   |    \n --+---+--\n   |   |    \n ")
+    end
   end
 
   describe '#check_win' do
@@ -24,6 +27,14 @@ describe Player do
       player1.collection = [4, 5]
       expect(player1.check_win).to eql(false)
     end
+    it 'does not return false if player wins' do
+      player2.collection = [1,2,3]
+      expect(player2.check_win).not_to eql(false)
+    end
+    it 'does not return true if player does not wins' do
+      player2.collection = [1,2,9]
+      expect(player2.check_win).not_to eql(true)
+    end
   end
 end
 
@@ -33,11 +44,17 @@ describe Board do
     it 'returns an empty board' do
       expect(board.display).to eql("   |   |    \n --+---+--\n   |   |    \n --+---+--\n   |   |    \n ")
     end
+    it 'does not return a board with content' do
+      expect(board.display).not_to eql("   | O |    \n --+---+--\n   |   |    \n --+---+--\n   |   |    \n ")
+    end
   end
 
   describe '#display_availble_moves' do
     it 'returns available moves' do
       expect(board.display_availble_moves).to eql('1, 2, 3, 4, 5, 6, 7, 8, 9')
+    end
+    it 'does not return false moves' do
+      expect(board.display_availble_moves).not_to eql('1, 2, 3, 4, 5, 6, 7, 8')
     end
   end
 
