@@ -51,4 +51,11 @@ describe Board do
       expect(board.check_draw).to eql(false)
     end
   end
+
+  describe "#update_availble_moves" do
+    it "return array without value pass in" do
+      expect(board.update_availble_moves(3)).to_not include(3)
+    end
+  end
+
 end
