@@ -83,7 +83,7 @@ This game is tested with Rspec which is a computer domain-specific language (DSL
 
 ## Rspec output
 
-![screenshot](../readme_game_instructions/testing_output.png) 
+![screenshot](../testing/testing_output.png) 
 
 ## Built With
 
